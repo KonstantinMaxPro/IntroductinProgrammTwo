@@ -1,5 +1,5 @@
 ﻿int number;
-
+// Первый вариант вывода второй цифры путем вычесления остатка
 int SecondDigit(int result)
 {
     if(result > 100)
@@ -8,9 +8,15 @@ int SecondDigit(int result)
     }
     if(result > 10)
     {
-        result %=10;
+        result %= 10;
     }
     return result;
+}
+// Второй вариант вывода второй цифры путем конвертации toString и вывод второго символа
+void SecondDigitStr(int result)
+{
+    string digit = Convert.ToString(result);
+    System.Console.WriteLine(digit[1]); 
 }
 
 Console.Clear();//Очищаем консоль
@@ -45,8 +51,11 @@ while (number > 999 || number < 100)//Проверка числа на трёх�
 }
 
 Console.WriteLine("\n=======================================");
-Console.Write($"Вторая цифра в числе {number}: ");
+Console.WriteLine($"Вторая цифра в числе {number}: ");
 Console.ForegroundColor = ConsoleColor.Yellow;
-Console.WriteLine(SecondDigit(number));
+//Вывод первого вариант решения
+Console.Write($"Первый метод: {SecondDigit(number)}\nВторой метод: ");
+//Вывод второго варианта решения
+SecondDigitStr(number);
 Console.ResetColor();
 Console.WriteLine("=======================================");
